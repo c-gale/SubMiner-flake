@@ -18,7 +18,18 @@
           sha256 = "sha256-aEqhxQ0cFxlJ4Tpsh0foIg4O8ZF9QQzVfSULGxPT+iU=";
         };
         extraPkgs = pkgs: with pkgs; [ ];
-      };
+        extraInstallCommands = ''
+          mkdir -p $out/share/applications
+          cat > $out/share/applications/subminer.desktop <<EOF
+          [Desktop Entry]
+          Name=SubMiner
+          Exec=subminer
+          Icon=subminer
+          Type=Application
+          Categories=Utility;
+          EOF
+        '';
+      };    
     in {
       packages.default = subminer;
 
