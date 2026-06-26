@@ -261,6 +261,9 @@
             --set npm_package_version "0.17.0" \
             --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.fzf pkgs.mecab ]}
 
+          mkdir -p $out/share/subminer/mpv-plugin
+          cp -r plugin/subminer/. $out/share/subminer/mpv-plugin/
+
           mkdir -p $out/share/applications
           cat > $out/share/applications/subminer.desktop << EOF
           [Desktop Entry]
