@@ -261,6 +261,21 @@
             --set npm_package_version "0.17.0" \
             --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.fzf pkgs.mecab ]}
 
+          mkdir -p $out/share/icons/hicolor/64x64/apps
+          cp ${src}/node_modules/app-builder-lib/templates/icons/proton-native/linux/64x64.png $out/share/icons/hicolor/64x64/apps/subminer.png
+
+          mkdir -p $out/share/applications
+          cat > $out/share/applications/subminer.desktop << EOF
+          [Desktop Entry]
+          Name=SubMiner
+          Comment=Yomitan-powered sentence mining overlay for MPV
+          Exec=$out/bin/subminer --start
+          Icon=$out/share/icons/hicolor/64x64/apps/subminer.png
+          Type=Application
+          Categories=AudioVideo;Education;
+          StartupNotify=true
+          EOF
+
           runHook postInstall
         '';  
       };
