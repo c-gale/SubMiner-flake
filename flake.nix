@@ -262,7 +262,7 @@
             --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.fzf pkgs.mecab ]}
 
           mkdir -p $out/share/icons/hicolor/64x64/apps
-          cp ${src}/node_modules/app-builder-lib/templates/icons/proton-native/linux/64x64.png $out/share/icons/hicolor/64x64/apps/subminer.png
+          cp ${src}/node_modules/.bun/app-builder-lib@26.8.2+ad140fb5a4e95efc/node_modules/app-builder-lib/templates/icons/proton-native/linux/64x64.png $out/share/icons/hicolor/64x64/apps/subminer.png
 
           mkdir -p $out/share/applications
           cat > $out/share/applications/subminer.desktop << EOF
